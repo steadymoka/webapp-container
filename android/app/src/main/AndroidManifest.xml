@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	package="com.moka.androidwebapp">
+
+	<!-- region permission -->
+	<uses-permission android:name="android.permission.INTERNET" />
+	<uses-permission android:name="android.permission.ACCESS_MEDIA_LOCATION" />
+	<!-- endregion -->
+
+	<application
+		android:name="._Application"
+		android:allowBackup="true"
+		android:icon="@mipmap/ic_launcher"
+		android:label="@string/app_name"
+		android:roundIcon="@mipmap/ic_launcher_round"
+		android:supportsRtl="true"
+		android:theme="@style/Theme.AndroidWebapp">
+
+		<!-- region meta-data -->
+		<meta-data
+			android:name="android.webkit.WebView.MetricsOptOut"
+			android:value="false" />
+		<meta-data
+			android:name="com.google.firebase.messaging.default_notification_icon"
+			android:resource="@drawable/ic_launcher_foreground" />
+		<!-- endregion -->
+
+		<!-- region activities -->
+		<activity
+			android:name=".MainActivity"
+			android:exported="true"
+			android:label="@string/app_name"
+			android:theme="@style/Theme.AndroidWebapp.NoActionBar">
+			<intent-filter>
+				<action android:name="android.intent.action.MAIN" />
+
+				<category android:name="android.intent.category.LAUNCHER" />
+			</intent-filter>
+		</activity>
+		<!-- endregion -->
+
+		<!-- region services -->
+		<service
+			android:name=".FcmService"
+			android:exported="false">
+			<intent-filter>
+				<action android:name="com.google.firebase.MESSAGING_EVENT" />
+			</intent-filter>
+		</service>
+		<!-- endregion -->
+
+	</application>
+
+</manifest>
