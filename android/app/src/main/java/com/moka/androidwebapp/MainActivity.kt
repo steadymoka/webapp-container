@@ -58,7 +58,7 @@ import kotlinx.coroutines.suspendCancellableCoroutine
 import moka.land.imagehelper.picker.builder.ImagePicker
 import kotlin.coroutines.resume
 
-const val HOST_URL = "http://192.168.31.24:3000"
+const val HOST_URL = "http://localhost:3000"
 const val HOME = "${HOST_URL}/app/android"
 const val TAG = "MainActivity"
 
@@ -161,10 +161,8 @@ class MainActivity : ComponentActivity() {
                 visible = (isSplash != false)
             ) {
                 Column(
-                    Modifier
-                        .fillMaxWidth()
-                        .padding(bottom = 96.dp),
-                    verticalArrangement = Arrangement.Bottom,
+                    Modifier.fillMaxWidth(),
+                    verticalArrangement = Arrangement.Center,
                     horizontalAlignment = Alignment.CenterHorizontally,
                 ) {
                     Box(
@@ -172,14 +170,14 @@ class MainActivity : ComponentActivity() {
                             .fillMaxWidth()
                             .height(56.dp)
                             .padding(horizontal = 24.dp)
-                            .background(Purple500, RoundedCornerShape(6.dp))
+                            .background(Purple500, RoundedCornerShape(24.dp))
                             .clickable {
-                                bridge.requestRoutePush("/auth/login")
+                                bridge.requestRoutePush("/auth")
                             },
                         contentAlignment = Alignment.Center,
                     ) {
                         Text(
-                            text = "로그인",
+                            text = "로그인 / 회원가입",
                             fontWeight = FontWeight.Bold,
                             color = Color.White,
                         )
@@ -191,14 +189,14 @@ class MainActivity : ComponentActivity() {
                             .padding(top = 8.dp)
                             .height(56.dp)
                             .padding(horizontal = 24.dp)
-                            .border(1.dp, Purple500, RoundedCornerShape(6.dp))
+                            .border(1.dp, Purple500, RoundedCornerShape(24.dp))
                             .clickable {
-                                bridge.requestRoutePush("/auth/register")
+                                bridge.requestRoutePush("/app")
                             },
                         contentAlignment = Alignment.Center,
                     ) {
                         Text(
-                            text = "회원가입",
+                            text = "시작",
                             fontWeight = FontWeight.Bold,
                             color = Purple500,
                         )
